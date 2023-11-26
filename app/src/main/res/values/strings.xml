@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="ring">Ring</string>
+    <string name="Tmp_in_label">Temperature in: </string>
+    <string name="Tmp_out_label">Temperature out: </string>
+    <string name="Humidity_out_label">Humidity out: </string>
+    <string name="tmp_in">#</string>
+    <string name="tmp_out">#</string>
+    <string name="humidity_out">#</string>
+</resources>
