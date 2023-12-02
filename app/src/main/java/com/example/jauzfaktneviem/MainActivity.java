@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Switch;
@@ -36,6 +37,8 @@ public class MainActivity extends Activity {
     private Switch SwitchKitchen;
     private Switch SwitchBedroom;
 
+    private ProgressBar progressBarIn;
+    private ProgressBar progressBarOut;
     private static final UUID HC05_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private static final String HC05_ADDRESS = "00:02:5B:00:A7:12";
 
@@ -62,6 +65,9 @@ public class MainActivity extends Activity {
         receivedHmdOut = findViewById(R.id.hmdOut);
 
 
+        progressBarIn = findViewById(R.id.temperatureInProgressBar);
+        progressBarOut = findViewById(R.id.temperatureOutProgressBar);
+
 
 
         LightMenu.setOnClickListener(view -> toggleMenuVisibility(lightMenu));
@@ -69,6 +75,10 @@ public class MainActivity extends Activity {
 
 
         Switch switchLeft = findViewById(R.id.switchLeft);
+        Switch switchRight = findViewById(R.id.switchRight);
+        Switch switchOut = findViewById(R.id.switchOut);
+        Switch switchKitchen = findViewById(R.id.switchKitchen);
+        Switch switchBedroom = findViewById(R.id.switchBedroom);
 
         switchLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -76,8 +86,29 @@ public class MainActivity extends Activity {
                 if (isChecked) {
                     // Perform actions when SwitchLeft changes to checked state
                     try {
-                        outputStream.write('c');
+                        outputStream.write('d');
                         Log.d("Data Sent", "c");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        outputStream.write('D');
+                        Log.d("Data Sent", "C");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        switchRight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Perform actions when SwitchLeft changes to checked state
+                    try {
+                        outputStream.write('e');
+                        Log.d("Data Sent", "E");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -91,7 +122,7 @@ public class MainActivity extends Activity {
                 }
             }
         });
-        switchLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchOut.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -112,7 +143,7 @@ public class MainActivity extends Activity {
                 }
             }
         });
-        switchLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchKitchen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -133,28 +164,7 @@ public class MainActivity extends Activity {
                 }
             }
         });
-        switchLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // Perform actions when SwitchLeft changes to checked state
-                    try {
-                        outputStream.write('c');
-                        Log.d("Data Sent", "c");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }else{
-                    try {
-                        outputStream.write('C');
-                        Log.d("Data Sent", "C");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-        switchLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchBedroom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -256,12 +266,11 @@ public class MainActivity extends Activity {
                     receivedTmpIn.setText(dividedStrings[0].substring(0, 4));
                     receivedHmdOut.setText(dividedStrings[2].substring(0, 2));
                     receivedTmpOut.setText(dividedStrings[1].substring(0, 4));
+                    progressBarIn.setProgress(Integer.parseInt(dividedStrings[0].substring(0, 2)));
+                    progressBarOut.setProgress(Integer.parseInt(dividedStrings[1].substring(0, 2)));
                 }
             }
-
-
         }
     }
-
 }
 

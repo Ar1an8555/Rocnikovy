@@ -6,39 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#1C1C1C"
     android:layout_weight="1"
     android:padding="10dp">
 
-    <TextView
-        android:layout_width="250dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ring"
-        android:textSize="30dp"
         android:background="@drawable/radius"
-        android:textColor="@color/white"
         android:padding="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_margin="20dp" />
+        android:layout_marginBottom="15dp">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bell"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:orientation="vertical"
+        >
 
-        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/koleso"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginRight="20dp"
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            >
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:padding="20dp"
-                android:background="@drawable/tmplogo"
-                android:textSize="30dp"/>
+            <ProgressBar
+                android:id="@+id/temperatureInProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:progress="40"
+                android:max="45"
+                android:progressDrawable="@drawable/custom_progress" />
 
             <TextView
                 android:id="@+id/tmpIn"
@@ -47,20 +65,47 @@
                 android:layout_marginLeft="20dp"
                 android:padding="20dp"
                 android:text="a"
-                android:textSize="30dp" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+                android:textSize="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
             <TextView
-                android:layout_width="80dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:padding="20dp"
-                android:background="@drawable/tmplogo"
-                android:textSize="30dp" />
+                android:text="IN"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/dot"
+                android:layout_marginTop="73dp"
+                android:layout_marginLeft="115dp"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/koleso"
+            android:layout_row="0">
+
+            <ProgressBar
+                android:id="@+id/temperatureOutProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:progress="40"
+                android:max="45"
+                android:progressDrawable="@drawable/custom_progress" />
 
             <TextView
                 android:id="@+id/tmpOut"
@@ -68,33 +113,84 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:text="a"
-                android:textSize="30dp" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                android:textSize="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
 
             <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:padding="20dp"
-                android:background="@drawable/HmdLogo"
-                android:textSize="30dp" />
-
-            <TextView
-                android:id="@+id/hmdOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:padding="20dp"
-                android:text="a"
-                android:textSize="30dp" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                android:text="OUT"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:textColor="@color/white"
+                />
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/dot"
+                android:layout_marginTop="73dp"
+                android:layout_marginLeft="115dp"
+                />
+        </RelativeLayout>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:gravity="center"
+            android:background="@drawable/radius"
+            android:layout_marginTop="20dp"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="20dp"
+                    android:textSize="30dp"
+                    android:background="@drawable/humidity"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/hmdOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:padding="20dp"
+                    android:text="a"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:padding="20dp"
+                    android:text="%"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </GridLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
