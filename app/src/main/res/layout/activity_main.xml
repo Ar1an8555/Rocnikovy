@@ -10,6 +10,7 @@
     android:layout_weight="1"
     android:padding="10dp">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,15 +18,43 @@
         android:padding="20dp"
         android:layout_marginBottom="15dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/treeSong"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/tree"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            />
+
+        <Button
+            android:id="@+id/menuButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/menu"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            />
 
         <ImageView
+            android:id="@+id/bellLines"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:background="@drawable/belllines"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+            />
+
+        <ImageView
+            android:id="@+id/bell"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/bell"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             />
     </RelativeLayout>
 
@@ -65,7 +94,7 @@
                 android:layout_marginLeft="20dp"
                 android:padding="20dp"
                 android:text="a"
-                android:textSize="30dp"
+                android:textSize="28dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:textStyle="bold"
@@ -356,7 +385,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-1dp">
+            android:layout_marginBottom="-1dp"
+            android:gravity="center">
 
             <ImageButton
                 android:id="@+id/lightbulb"
@@ -370,8 +400,8 @@
 
             <ImageButton
                 android:id="@+id/door"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="118dp"
+                android:layout_height="118dp"
                 android:background="@drawable/roundbutton"
                 android:padding="12dp"
                 android:scaleType="fitCenter"

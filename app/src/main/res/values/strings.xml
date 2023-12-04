@@ -7,4 +7,5 @@
     <string name="tmp_in">#</string>
     <string name="tmp_out">#</string>
     <string name="humidity_out">#</string>
+    <string name="IconLabel">Malibu SM</string>
 </resources>
